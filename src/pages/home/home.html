@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lates News</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3
+               *ngFor="let news of newsFeed | async">
+        <ion-card>
+          <img [src]="news.newsImageUrl"/>
+          <ion-card-content>
+              <ion-card-title>
+                  {{news.title}}
+              </ion-card-title>
+              <p>
+                  {{news.newsShortSummary}}
+              </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
